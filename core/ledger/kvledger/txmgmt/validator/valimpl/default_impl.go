@@ -14,8 +14,11 @@ import (
 	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/validator"
 	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/validator/internal"
 	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/validator/statebasedval"
+<<<<<<< HEAD
 	"github.com/hyperledger/fabric/core/ledger/util"
 	"github.com/hyperledger/fabric/protos/common"
+=======
+>>>>>>> test1
 )
 
 var logger = flogging.MustGetLogger("valimpl")
@@ -42,7 +45,10 @@ func (impl *DefaultImpl) ValidateAndPrepareBatch(blockAndPvtdata *ledger.BlockAn
 	block := blockAndPvtdata.Block
 	logger.Debugf("ValidateAndPrepareBatch() for block number = [%d]", block.Header.Number)
 	var internalBlock *internal.Block
+<<<<<<< HEAD
 	var txsStatInfo []*txmgr.TxStatInfo
+=======
+>>>>>>> test1
 	var pubAndHashUpdates *internal.PubAndHashUpdates
 	var pvtUpdates *privacyenabledstate.PvtUpdateBatch
 	var err error
@@ -53,7 +59,11 @@ func (impl *DefaultImpl) ValidateAndPrepareBatch(blockAndPvtdata *ledger.BlockAn
 	}
 
 	if pubAndHashUpdates, err = impl.internalValidator.ValidateAndPrepareBatch(internalBlock, doMVCCValidation); err != nil {
+<<<<<<< HEAD
 		return nil, nil, err
+=======
+		return nil, err
+>>>>>>> test1
 	}
 	logger.Debug("validating rwset...")
 	if pvtUpdates, err = validateAndPreparePvtBatch(internalBlock, impl.db, pubAndHashUpdates, blockAndPvtdata.PvtData); err != nil {

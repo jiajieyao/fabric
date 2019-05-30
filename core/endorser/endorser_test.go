@@ -12,6 +12,8 @@ import (
 	"os"
 	"testing"
 
+	. "github.com/onsi/gomega"
+
 	"github.com/golang/protobuf/proto"
 	"github.com/hyperledger/fabric/common/flogging"
 	mc "github.com/hyperledger/fabric/common/mocks/config"
@@ -34,7 +36,10 @@ import (
 	pb "github.com/hyperledger/fabric/protos/peer"
 	"github.com/hyperledger/fabric/protos/transientstore"
 	"github.com/hyperledger/fabric/protos/utils"
+<<<<<<< HEAD
 	. "github.com/onsi/gomega"
+=======
+>>>>>>> test1
 	"github.com/onsi/gomega/gbytes"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
@@ -460,7 +465,11 @@ func TestEndorserChaincodeCallLogging(t *testing.T) {
 	m.On("Serialize").Return([]byte{1, 1, 1}, nil)
 	m.On("GetTxSimulator", mock.Anything, mock.Anything).Return(newMockTxSim(), nil)
 	support := &em.MockSupport{
+<<<<<<< HEAD
 		Mock:                       m,
+=======
+		Mock: m,
+>>>>>>> test1
 		GetApplicationConfigBoolRv: true,
 		GetApplicationConfigRv:     &mc.MockApplication{CapabilitiesRv: &mc.MockApplicationCapabilities{}},
 		GetTransactionByIDErr:      errors.New(""),

@@ -10,7 +10,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"runtime"
+<<<<<<< HEAD
 	"testing"
+=======
+>>>>>>> test1
 
 	"github.com/hyperledger/fabric/integration/nwo"
 	. "github.com/onsi/ginkgo"

@@ -1,4 +1,4 @@
-# Membership
+an# Membership
 
 If you've read through the documentation on [identity](../identity/identity.html)
 you've seen how a PKI can provide verifiable identities through a chain

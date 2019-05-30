@@ -20,7 +20,10 @@ import (
 	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/privacyenabledstate"
 	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/rwsetutil"
 	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/statedb"
+<<<<<<< HEAD
 	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/txmgr"
+=======
+>>>>>>> test1
 	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/validator/internal"
 	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/version"
 	lutils "github.com/hyperledger/fabric/core/ledger/util"
@@ -33,7 +36,11 @@ import (
 )
 
 func TestMain(m *testing.M) {
+<<<<<<< HEAD
 	flogging.ActivateSpec("internal=debug")
+=======
+	flogging.SetModuleLevel("internal", "debug")
+>>>>>>> test1
 	viper.Set("peer.fileSystemPath", "/tmp/fabric/ledgertests/kvledger/txmgmt/validator/internal")
 	os.Exit(m.Run())
 }

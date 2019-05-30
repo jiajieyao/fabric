@@ -112,6 +112,7 @@ var _ = Describe("EndToEnd", func() {
 			By("getting the client peer by name")
 			peer := network.Peer("Org1", "peer1")
 
+<<<<<<< HEAD
 			RunQueryInvokeQuery(network, orderer, peer, "testchannel")
 			RunRespondWith(network, orderer, peer, "testchannel")
 
@@ -123,6 +124,10 @@ var _ = Describe("EndToEnd", func() {
 			CheckPeerStatsdMetrics(datagramReader.String(), "org1_peer0")
 			CheckPeerStatsdMetrics(datagramReader.String(), "org2_peer1")
 			CheckOrdererStatsdMetrics(datagramReader.String(), "ordererorg_orderer")
+=======
+			RunQueryInvokeQuery(network, orderer, peer)
+			RunRespondWith(network, orderer, peer)
+>>>>>>> test1
 		})
 	})
 
@@ -362,10 +367,17 @@ func RunQueryInvokeQuery(n *nwo.Network, orderer *nwo.Orderer, peer *nwo.Peer, c
 	Expect(sess).To(gbytes.Say("90"))
 }
 
+<<<<<<< HEAD
 func RunRespondWith(n *nwo.Network, orderer *nwo.Orderer, peer *nwo.Peer, channel string) {
 	By("responding with a 300")
 	sess, err := n.PeerUserSession(peer, "User1", commands.ChaincodeInvoke{
 		ChannelID: channel,
+=======
+func RunRespondWith(n *nwo.Network, orderer *nwo.Orderer, peer *nwo.Peer) {
+	By("responding with a 300")
+	sess, err := n.PeerUserSession(peer, "User1", commands.ChaincodeInvoke{
+		ChannelID: "testchannel",
+>>>>>>> test1
 		Orderer:   n.OrdererAddress(orderer, nwo.ListenPort),
 		Name:      "mycc",
 		Ctor:      `{"Args":["respond","300","response-message","response-payload"]}`,
@@ -380,7 +392,11 @@ func RunRespondWith(n *nwo.Network, orderer *nwo.Orderer, peer *nwo.Peer, channe
 
 	By("responding with a 400")
 	sess, err = n.PeerUserSession(peer, "User1", commands.ChaincodeInvoke{
+<<<<<<< HEAD
 		ChannelID: channel,
+=======
+		ChannelID: "testchannel",
+>>>>>>> test1
 		Orderer:   n.OrdererAddress(orderer, nwo.ListenPort),
 		Name:      "mycc",
 		Ctor:      `{"Args":["respond","400","response-message","response-payload"]}`,
@@ -393,6 +409,7 @@ func RunRespondWith(n *nwo.Network, orderer *nwo.Orderer, peer *nwo.Peer, channe
 	Eventually(sess, time.Minute).Should(gexec.Exit(1))
 	Expect(sess.Err).To(gbytes.Say(`Error: endorsement failure during invoke.`))
 }
+<<<<<<< HEAD
 
 func CheckPeerStatsdMetrics(contents, prefix string) {
 	By("checking for peer statsd metrics")
@@ -587,3 +604,5 @@ func getBody(client *http.Client, url string) func() string {
 		return string(bodyBytes)
 	}
 }
+=======
+>>>>>>> test1

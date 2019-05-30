@@ -690,12 +690,15 @@ func TestPaginatedQueryValidation(t *testing.T) {
 	err = validateQueryMetadata(queryOptions)
 	assert.Error(t, err, "An should have been thrown for an invalid options")
 }
+<<<<<<< HEAD
 
 func TestApplyUpdatesWithNilHeight(t *testing.T) {
 	env := NewTestVDBEnv(t)
 	defer env.Cleanup()
 	commontests.TestApplyUpdatesWithNilHeight(t, env.DBProvider)
 }
+=======
+>>>>>>> test1
 
 func TestRangeScanWithCouchInternalDocsPresent(t *testing.T) {
 	env := NewTestVDBEnv(t)
